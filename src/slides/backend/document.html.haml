@@ -1,0 +1,182 @@
+!!! 5
+%html{:lang=>(attr :lang, 'en')}
+  %head
+    %link(href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu:500|Droid+Serif' rel='stylesheet' type='text/css')
+    %meta(http-equiv='Content-Type' content="text/html; charset=#{attr :encoding}")
+    %meta(charset='utf-8')
+    %meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+    %meta(name='generator' content="Asciidoctor #{attr 'asciidoctor-version'}")
+    - if attr? :description
+      %meta(name='description'){:content=>(attr :description)}
+    - if attr? :keywords 
+      %meta(name='keywords'){:content=>(attr :keywords)}
+    %title=doctitle
+    - unless (attr :stylesheet, '').empty?
+      %link(rel="stylesheet"){:href=>(attr? :stylesdir) ? File.join((attr :stylesdir), (attr :stylesheet)) : (attr :stylesheet)}
+    - case attr 'source-highlighter'
+    - when 'coderay'
+      - if (attr 'coderay-css', 'class') == 'class'
+        -# hackish, find a way to locate this function in a more generic namespace
+        =Asciidoctor::HTML5::DocumentTemplate.default_coderay_stylesheet
+    - when 'highlightjs'
+      %link(rel='stylesheet' href="#{attr :highlightjsdir, 'http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3'}/styles/#{attr 'highlightjs-theme', 'default'}.min.css")
+      %script(src="#{attr :highlightjsdir, 'http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3'}/highlight.min.js")
+      %script hljs.initHighlightingOnLoad()
+
+    %link(href="css/shCore.css" rel="stylesheet" type="text/css")
+    %link(href="css/shCoreEclipse.css" rel="stylesheet" type="text/css")
+    %link(href="css/shThemeEclipse.css" rel="stylesheet" type="text/css")
+    %link(href="css/style.css" rel="stylesheet")
+
+    %script(src="js/modernizr.custom.2.6.2.js")
+    %script(type="text/javascript" src="js/shCore.js")
+    %script(type="text/javascript" src="js/shBrushCypher.js")
+    %script(type="text/javascript" src="js/shBrushJava.js")
+    %script(type="text/javascript" src="js/shBrushJScript.js")
+    %script(type="text/javascript" src="js/shBrushBash.js")
+    %script(type="text/javascript" src="js/shBrushPlain.js")
+    %script(type="text/javascript" src="js/shBrushXml.js")
+    %script(type="text/javascript" src="js/shBrushGroovy.js")
+    %script(type="text/javascript" src="js/shBrushRuby.js")
+    %script(type="text/javascript" src="js/shBrushCSharp.js")
+    %script(type="text/javascript" src="js/shBrushScala.js")
+    %script(type="text/javascript" src="js/shBrushSql.js")
+    %script(type="text/javascript" src="js/shBrushPython.js")
+
+    :javascript
+      SyntaxHighlighter.defaults['tab-size'] = 4;
+      SyntaxHighlighter.defaults['gutter'] = false;
+      SyntaxHighlighter.defaults['toolbar'] = false;
+      SyntaxHighlighter.all()
+
+    :css
+      .col {
+        clear: left;
+      }
+      .columns {
+        float: left;
+        width: 440px;
+      }
+      .page {
+        float: left;
+      }
+      footer div.mid {
+        padding: 1em;
+      }
+      .moved {
+        display: none;
+      }
+
+    :javascript
+      if ( !window.jQuery ) {
+        document.write( '<script src="js/jquery.min.js"><\/script>' );
+      }
+
+    :javascript
+      $( function()
+      {
+        function init()
+        {
+          var pageWidth = $( window ).width();
+          var numberOfColumns = 1;
+          var columns = [];
+          switch ( true )
+          {
+            case pageWidth >= 978 && pageWidth < 1350:
+              numberOfColumns = 2;
+              break;
+            case pageWidth >= 1350 && pageWidth < 1800:
+              numberOfColumns = 3;
+              break;
+            case pageWidth >= 1800 && pageWidth < 2210:
+              numberOfColumns = 4;
+              break;
+            case pageWidth >= 2210 && pageWidth < 2640:
+              numberOfColumns = 5;
+              break;
+            case pageWidth >= 2640:
+              numberOfColumns = 6;
+              break;
+          }
+          if ( numberOfColumns < 2 )
+          {
+            return;
+          }
+          var page = $( "#clearing-div" );
+          for ( var i = 2; i <= numberOfColumns; i++ )
+          {
+            column = $( '<div class="columns" id="column-' + i + '"/>' );
+            column.insertBefore( page );
+            columns.push( column );
+          }
+          //           <div style="clear:both;"> </div>
+          $( "#page > div.col" ).each( function()
+          {
+            var element = $( this );
+            for ( var i = 2; i <= numberOfColumns; i++ )
+            {
+              var moveTo = "c" + numberOfColumns + "-" + i;
+              if ( element.hasClass( moveTo ) )
+              {
+                var clone = element.clone( true );
+                clone.appendTo( columns[i - 2] );
+                element.addClass( "moved" );
+              } else {
+                alert(moveTo);
+                alert(element.attr("class"));
+              }
+            }
+          } );
+        }
+        init();
+        $( window ).resize(function()
+        {
+          $( "div.columns" ).remove();
+          $( "#page > div.col" ).removeClass( "moved" );
+          init();
+        });
+      } );
+
+    :css
+      html, body {
+        background-color: #ffffff !important;
+      }
+      .main .mid {
+        background: none !important;
+        box-shadow: none !important;
+      }
+
+    %link(href="css/cypher_main.css" rel="stylesheet" media="print, screen" type="text/css")
+
+  %body{:id=>@id, :class=>[(attr :doctype)], :style=>("max-width: #{attr 'max-width'};" if (attr? 'max-width'))}
+    %header
+      %div{:class=>["mid"]}
+        %img(class="neo4j-logo" id="neo4j-logo" src="images/neo4j-refcard.png")
+          %h1
+            TomEE RefCard
+            
+    %div{:class=>["main"]}
+      %div{:class=>["mid"]}
+        %div{:class=>["page"], :id=>["page"]}
+          =content
+        %div{:id=>"clearing-div", :style=>"clear:both;"}
+
+    %footer
+      %div{:class=>["mid"]}
+        %a(href="https://github.com/neo4j/cypher-refcard" title="source code")
+        %img(src="images/github.png" alt="source code")
+        %a(rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons License")
+        %img(alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png")
+        by
+        %a(href="http://www.neotechnology.com/")
+          Neo Technology
+
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1192232-16']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
