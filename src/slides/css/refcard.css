@@ -22,7 +22,7 @@ html,body {
     margin: 0 auto;
     width: 2640px;
   }
-  header img.neo4j-logo {
+  header img.logo {
     width: 282px;
     float: left;
     margin: 2em 0 0 3%;
@@ -50,7 +50,7 @@ html,body {
     margin: 0 auto;
     width: 2210px;
   }
-  header img.neo4j-logo {
+  header img.logo {
     width: 282px;
     float: left;
     margin: 2em 0 0 3%;
@@ -78,7 +78,7 @@ html,body {
     margin: 0 auto;
     width: 1800px;
   }
-  header img.neo4j-logo {
+  header img.logo {
     width: 282px;
     float: left;
     margin: 2em 0 0 3%;
@@ -106,7 +106,7 @@ html,body {
     margin: 0 auto;
     width: 1330px;
   }
-  header img.neo4j-logo {
+  header img.logo {
     width: 282px;
     float: left;
     margin: 2em 0 0 3%;
@@ -134,7 +134,7 @@ html,body {
     margin: 0 auto;
     width: 90%;
   }
-  header img.neo4j-logo {
+  header img.logo {
     width: 282px;
     float: left;
     margin: 2em 0 0 3%;
@@ -161,7 +161,7 @@ html,body {
     margin: 0 auto;
     width: 80%;
   }
-  header img.neo4j-logo {
+  header img.logo {
     width: 282px;
     float: left;
     margin: 2em 0 0 3%;
@@ -189,7 +189,7 @@ html,body {
     margin: 0 auto;
     width: 93%;
   }
-  header img.neo4j-logo {
+  header img.logo {
     width: 212px;
     float: left;
     margin: 2em 0 0 3%;
@@ -219,7 +219,7 @@ html,body {
     margin: 0;
     width: 100%;
   }
-  header img.neo4j-logo {
+  header img.logo {
     width: 212px;
     float: none;
     margin: 1em 0 0 3%;
@@ -260,7 +260,7 @@ html,body {
     margin: 0;
     width: 100%;
   }
-  header img.neo4j-logo {
+  header img.logo {
     width: 282px;
     float: left;
     margin: 2em 0 0 3%;
@@ -280,7 +280,7 @@ html,body {
     clear: none;
   }
   html,body {
-    background-color: #ffffff !important;
+
   }
   .main .mid {
     background: none !important;
@@ -314,7 +314,6 @@ html,body {
 }
 
 header {
-  background: #005a72 url('bg.png');
   color: #fff;
   width: 100%;
   margin: 0;
@@ -332,7 +331,7 @@ header {
 }
 
 header .mid {
-  background-color: #005a72;
+  background-color: #FF2F39;
 }
 
 header h1 {
@@ -353,7 +352,7 @@ footer div.mid {
 .col h2 {
   font-size: 1.3em;
   margin-top: 0;
-  color: #005a72;
+  color: #FF2F39;
 }
 
 .twoCols {
@@ -375,10 +374,8 @@ footer div.mid {
 }
 
 .col tr th {
-  padding: 0.125em 0.125em 0.25em 0.125em;
   border: none;
-  /*background: #005a72 url('005a72.gif') repeat-x repeat-y top left;*/
-  background: #005a72 url('bg.png');
+  background: #ff2f39;
   color: #fff;
   font-family: 'Ubuntu', Candara, serif;
   font-weight: 500;
@@ -406,14 +403,9 @@ footer div.mid {
 .col tr td {
   border-top: none;
   margin: 0;
-  padding: 0.25em;
   border-left: 1px solid #e5e5e5;
   border-right: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
-}
-
-.col td pre,.blk pre {
-  white-space: nowrap;
 }
 
 .col td pre {
@@ -482,4 +474,21 @@ body .syntaxhighlighter {
 
 body .syntaxhighlighter table td.code .line {
   padding: 0 !important;
+}
+
+.col {
+    clear: left;
+}
+.columns {
+    float: left;
+    width: 440px;
+}
+.page {
+    float: left;
+}
+footer div.mid {
+    padding: 1em;
+}
+.moved {
+    display: none;
 }
