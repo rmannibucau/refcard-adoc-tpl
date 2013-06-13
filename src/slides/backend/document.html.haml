@@ -110,7 +110,7 @@
             columns.push( column );
           }
           //           <div style="clear:both;"> </div>
-          $( "#page > div.col" ).each( function()
+          $( "#page >> div.col" ).each( function()
           {
             var element = $( this );
             for ( var i = 2; i <= numberOfColumns; i++ )
@@ -121,9 +121,6 @@
                 var clone = element.clone( true );
                 clone.appendTo( columns[i - 2] );
                 element.addClass( "moved" );
-              } else {
-                alert(moveTo);
-                alert(element.attr("class"));
               }
             }
           } );
@@ -132,7 +129,7 @@
         $( window ).resize(function()
         {
           $( "div.columns" ).remove();
-          $( "#page > div.col" ).removeClass( "moved" );
+          $( "#page >> div.col" ).removeClass( "moved" );
           init();
         });
       } );
@@ -151,10 +148,9 @@
   %body{:id=>@id, :class=>[(attr :doctype)], :style=>("max-width: #{attr 'max-width'};" if (attr? 'max-width'))}
     %header
       %div{:class=>["mid"]}
-        %img(class="neo4j-logo" id="neo4j-logo" src="images/neo4j-refcard.png")
-          %h1
-            TomEE RefCard
-            
+        %h1
+          RefCard
+
     %div{:class=>["main"]}
       %div{:class=>["mid"]}
         %div{:class=>["page"], :id=>["page"]}
@@ -163,20 +159,4 @@
 
     %footer
       %div{:class=>["mid"]}
-        %a(href="https://github.com/neo4j/cypher-refcard" title="source code")
-        %img(src="images/github.png" alt="source code")
-        %a(rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons License")
-        %img(alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png")
-        by
-        %a(href="http://www.neotechnology.com/")
-          Neo Technology
-
-    :javascript
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-1192232-16']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+        RefCard

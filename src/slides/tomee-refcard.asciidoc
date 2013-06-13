@@ -75,12 +75,14 @@ START
 [options="header"]
 |====
 |Patterns
-a|["source","cypher"]
+a|
+["source","cypher"]
 ----
 (n)-->(m)
 ----
 A relationship from `n` to `m` exists.
-a|["source","cypher"]
+a|
+["source","cypher"]
 ----
 (n)--(m)
 ----
@@ -90,17 +92,20 @@ a|["source","cypher"]
 (m)<-[:KNOWS]-(n)
 ----
 A relationship from `n` to `m` of type `KNOWS` exists.
-a|["source","cypher"]
+a|
+["source","cypher"]
 ----
 (n)-[:KNOWS\|LOVES]->(m)
 ----
 A relationship from `n` to `m` of type `KNOWS` or `LOVES` exists.
-a|["source","cypher"]
+a|
+["source","cypher"]
 ----
 (n)-[r]->(m)
 ----
 Bind an identifier to the relationship.
-a|["source","cypher"]
+a|
+["source","cypher"]
 ----
 (n)-[r?]->(m)
 ----
@@ -110,12 +115,14 @@ a|["source","cypher"]
 (n)-[*1..5]->(m)
 ----
 Variable length paths.
-a|["source","cypher"]
+a|
+["source","cypher"]
 ----
 (n)-[*]->(m)
 ----
 Any depth.
-a|["source","cypher"]
+a|
+["source","cypher"]
 ----
 (n)-[:KNOWS]->(m {property: {value}})
 ----
