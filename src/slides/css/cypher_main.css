@@ -384,22 +384,6 @@ footer div.mid {
   font-weight: 500;
 }
 
-.col.cardgeneral tr th {
-  background: #617a96;
-}
-
-.col.cardread tr th /*, p.cardread span*/ {
-  background: #789661;
-}
-
-.col.cardwrite tr th {
-  background: #967061;
-}
-
-.col.cardperformance tr th {
-  background: #964362;
-}
-
 /*p.cardread span {
   color: #ffffff;
   padding: 2px 4px;

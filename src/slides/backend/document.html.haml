@@ -11,24 +11,15 @@
     - if attr? :keywords 
       %meta(name='keywords'){:content=>(attr :keywords)}
     %title=doctitle
-    - unless (attr :stylesheet, '').empty?
-      %link(rel="stylesheet"){:href=>(attr? :stylesdir) ? File.join((attr :stylesdir), (attr :stylesheet)) : (attr :stylesheet)}
-    - case attr 'source-highlighter'
-    - when 'coderay'
-      - if (attr 'coderay-css', 'class') == 'class'
-        -# hackish, find a way to locate this function in a more generic namespace
-        =Asciidoctor::HTML5::DocumentTemplate.default_coderay_stylesheet
-    - when 'highlightjs'
-      %link(rel='stylesheet' href="#{attr :highlightjsdir, 'http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3'}/styles/#{attr 'highlightjs-theme', 'default'}.min.css")
-      %script(src="#{attr :highlightjsdir, 'http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3'}/highlight.min.js")
-      %script hljs.initHighlightingOnLoad()
 
     %link(href="css/shCore.css" rel="stylesheet" type="text/css")
     %link(href="css/shCoreEclipse.css" rel="stylesheet" type="text/css")
     %link(href="css/shThemeEclipse.css" rel="stylesheet" type="text/css")
     %link(href="css/style.css" rel="stylesheet")
+    %link(href="css/github.min.css" rel="stylesheet")
 
     %script(src="js/modernizr.custom.2.6.2.js")
+    %script(src="js/highlight.min.js")
     %script(type="text/javascript" src="js/shCore.js")
     %script(type="text/javascript" src="js/shBrushCypher.js")
     %script(type="text/javascript" src="js/shBrushJava.js")
@@ -42,6 +33,8 @@
     %script(type="text/javascript" src="js/shBrushScala.js")
     %script(type="text/javascript" src="js/shBrushSql.js")
     %script(type="text/javascript" src="js/shBrushPython.js")
+
+    %script hljs.initHighlightingOnLoad()
 
     :javascript
       SyntaxHighlighter.defaults['tab-size'] = 4;

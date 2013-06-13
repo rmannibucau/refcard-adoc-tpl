@@ -17,7 +17,7 @@
         <artifactId>asciidoctor-maven-plugin</artifactId>
         <version>0.1.4-SNAPSHOT</version>
         <configuration>
-          <sourceDocumentName>src/slides/tomee-refcard.asciidoc</sourceDocumentName>
+          <sourceDocumentName>src/slides/refcard.asciidoc</sourceDocumentName>
           <outputDirectory>${slides.output}</outputDirectory>
 
           <synchronizations>
@@ -35,29 +35,27 @@
             </synchronization>
           </synchronizations>
 
-          <title>TomEE RefCard</title>
-          <home>tomee-refcard</home>
+          <title>RefCard</title>
+          <home>refcard</home>
 
           <attributes>
-            <description>TomEE RefCard</description>
-            <keywords>tomee,refcard</keywords>
+            <description>RefCard</description>
+            <keywords>refcard</keywords>
 
             <author>TomEE</author>
             <email>users@tomee.apache.org</email>
             <revdate>${maven.build.timestamp}</revdate>
             <revnumber>${project.version}</revnumber>
 
-            <!--
-            <highlightjsdir>highlight</highlightjsdir>
+            <highlightjsdir>js</highlightjsdir>
             <highlightjs-theme>github</highlightjs-theme>
-            -->
           </attributes>
 
 
           <backend>html5</backend>
           <compact>true</compact>
           <headerFooter>true</headerFooter>
-          <!--<sourceHighlighter>highlightjs</sourceHighlighter>-->
+          <sourceHighlighter>highlightjs</sourceHighlighter>
 
           <templateDir>${slides.input}/backend</templateDir>
           <templateEngine />

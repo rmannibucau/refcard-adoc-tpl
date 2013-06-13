@@ -18,35 +18,7 @@ or read the full Cypher documentation at
 
 Note: `{value}` denotes either literals, for ad hoc Cypher queries; or parameters, which is the best practice for applications.
 
-== Syntax ==
-
-.Read Query Structure 
-["refcard", cardcss="read c2-2 c3-2 c4-2 c5-2"]
-----
-START
-[MATCH]
-[WHERE]
-RETURN [ORDER BY] [SKIP] [LIMIT]
-----
-
-.Write-Only Query Structure 
-["refcard", cardcss="write c2-2 c4-4 c5-4 c6-3"]
-----
-CREATE [UNIQUE]*
-[SET|DELETE|FOREACH]*
-[RETURN [ORDER BY] [SKIP] [LIMIT]]
-----
-
-.Read-Write Query Structure 
-["refcard", cardcss="write c2-2 c4-4 c5-4 c6-3"]
-----
-START
-[MATCH]
-[WHERE]
-[CREATE [UNIQUE]]*
-[SET|DELETE|FOREACH]*
-[RETURN [ORDER BY] [SKIP] [LIMIT]]
-----
+== Title
 
 ++++
 <div class="col cardgeneral c3-2 c6-4"><div class="blk">
@@ -67,6 +39,8 @@ START
 ++++
 </div></div>
 ++++
+
+== Title 2
 
 ++++
 <div class='col cardgeneral c2-2 c3-2 c4-2 c6-2 column'><div class='blk'>
