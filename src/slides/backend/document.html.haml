@@ -12,27 +12,12 @@
       %meta(name='keywords'){:content=>(attr :keywords)}
     %title=doctitle
 
-    %link(href="css/shCore.css" rel="stylesheet" type="text/css")
-    %link(href="css/shCoreEclipse.css" rel="stylesheet" type="text/css")
-    %link(href="css/shThemeEclipse.css" rel="stylesheet" type="text/css")
     %link(href="css/style.css" rel="stylesheet")
     %link(href="css/github.min.css" rel="stylesheet")
 
+    %script(src="js/jquery.min.js")
     %script(src="js/modernizr.custom.2.6.2.js")
     %script(src="js/highlight.min.js")
-    %script(type="text/javascript" src="js/shCore.js")
-    %script(type="text/javascript" src="js/shBrushCypher.js")
-    %script(type="text/javascript" src="js/shBrushJava.js")
-    %script(type="text/javascript" src="js/shBrushJScript.js")
-    %script(type="text/javascript" src="js/shBrushBash.js")
-    %script(type="text/javascript" src="js/shBrushPlain.js")
-    %script(type="text/javascript" src="js/shBrushXml.js")
-    %script(type="text/javascript" src="js/shBrushGroovy.js")
-    %script(type="text/javascript" src="js/shBrushRuby.js")
-    %script(type="text/javascript" src="js/shBrushCSharp.js")
-    %script(type="text/javascript" src="js/shBrushScala.js")
-    %script(type="text/javascript" src="js/shBrushSql.js")
-    %script(type="text/javascript" src="js/shBrushPython.js")
 
     %script hljs.initHighlightingOnLoad()
 
@@ -58,11 +43,6 @@
       }
       .moved {
         display: none;
-      }
-
-    :javascript
-      if ( !window.jQuery ) {
-        document.write( '<script src="js/jquery.min.js"><\/script>' );
       }
 
     :javascript

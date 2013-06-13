@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.apache.tomee</groupId>
-  <artifactId>tomee-refcard</artifactId>
+  <groupId>org.refcard</groupId>
+  <artifactId>refcard</artifactId>
   <version>1-SNAPSHOT</version>
-  <name>TomEE Reference Card</name>
+  <name>Reference Card</name>
   <packaging>pom</packaging>
 
   <build>
@@ -42,8 +42,8 @@
             <description>RefCard</description>
             <keywords>refcard</keywords>
 
-            <author>TomEE</author>
-            <email>users@tomee.apache.org</email>
+            <author>RefCard</author>
+            <email>users@refcard</email>
             <revdate>${maven.build.timestamp}</revdate>
             <revnumber>${project.version}</revnumber>
 
