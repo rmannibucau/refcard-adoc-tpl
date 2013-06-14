@@ -1,12 +1,9 @@
-$( function()
-{
-    function init()
-    {
-        var pageWidth = $( window ).width();
+$(function () {
+    function init() {
+        var pageWidth = $(window).width();
         var numberOfColumns = 1;
-        var columns = [];
-        switch ( true )
-        {
+
+        switch (true) {
             case pageWidth >= 978 && pageWidth < 1350:
                 numberOfColumns = 2;
                 break;
@@ -23,40 +20,55 @@ $( function()
                 numberOfColumns = 6;
                 break;
         }
-        if ( numberOfColumns < 2 )
-        {
+        if (numberOfColumns < 2) {
             return;
         }
-        var page = $( "#clearing-div" );
-        for ( var i = 2; i <= numberOfColumns; i++ )
-        {
-            column = $( '<div class="columns" id="column-' + i + '"/>' );
-            column.insertBefore( page );
-            columns.push( column );
-        }
-        //           <div style="clear:both;"> </div>
-        $( "#page >> div.col" ).each( function()
-        {
-            var element = $( this );
-            for ( var i = 2; i <= numberOfColumns; i++ )
-            {
-                var moveTo = "c" + numberOfColumns + "-" + i;
-                if ( element.hasClass( moveTo ) )
-                {
-                    var clone = element.clone( true );
-                    clone.appendTo( columns[i - 2] );
-                    element.addClass( "moved" );
-                }
+
+        var page = $("#clearing-div");
+
+        $('div.horizontal-block').each(function () {
+            var container = $(this);
+            var id = container.attr('id');
+
+            var newContainer = $('<div class="columns-container" id="container-' + id + '" />');
+            newContainer.insertBefore(page);
+            newContainer.append($('<h2>' + id + '</h2>'));
+
+            var columns = [];
+            for (var i = 1; i <= numberOfColumns; i++) {
+                column = $('<div class="columns" id="column-' + i + '-' + id + '"/>');
+                newContainer.append(column);
+                columns.push(column);
             }
-        } );
+            newContainer.append($('<div style="clear: both;" />'));
+            newContainer.append($('<hr />'));
+
+            $("#" + id + " > div.col").each(function () {
+                var element = $(this);
+                for (var i = 1; i <= numberOfColumns; i++) {
+                    var moveTo = "c" + numberOfColumns + "-" + i;
+                    if (element.hasClass(moveTo)) {
+                        var clone = element.clone(true);
+                        columns[i - 1].append(clone);
+                        element.addClass("moved");
+                    }
+                }
+            });
+        });
     }
+
     init();
-    $( window ).resize(function()
-    {
-        $( "div.columns" ).remove();
-        $( "#page >> div.col" ).removeClass( "moved" );
+    $(window).resize(function () {
+        $("div.columns").remove();
+        $("div.columns-container").remove();
+        $('div.horizontal-block').each(function () {
+            var id = $(this).attr('id');
+            $("#" + id + " > div.col").each(function () {
+                $(this).removeClass("moved");
+            })
+        });
         init();
     });
-} );
+});
 
 hljs.initHighlightingOnLoad()
