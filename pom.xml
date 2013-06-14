@@ -40,6 +40,8 @@
 
           <attributes>
             <description>RefCard</description>
+            <headerText>RefCard</headerText>
+            <footerText>RefCard</footerText>
             <keywords>refcard</keywords>
 
             <author>RefCard</author>

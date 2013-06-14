@@ -23,10 +23,9 @@
 
   %body{:id=>@id, :class=>[(attr :doctype)], :style=>("max-width: #{attr 'max-width'};" if (attr? 'max-width'))}
     %header
-      %div{:class=>["mid"]}
-        %img(src="images/tomee.png" id="logo")
+      %div{:class=>["mid"], :style=>"height: 4em;"}
         %h1
-          TomEE RefCard
+          #{attr :headerText}
 
     %div{:class=>["main"]}
       %div{:class=>["mid"]}
@@ -36,4 +35,4 @@
 
     %footer
       %div{:class=>["mid"]}
-        TomEE RefCard - revision #{attr :revnumber} - #{attr :revdate}
+        #{attr :footerText} - revision #{attr :revnumber} - #{attr :revdate}

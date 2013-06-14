@@ -2,11 +2,7 @@
 :linkcss!:
 :data-uri:
 
-*Apache TomEE is a JavaEE 6 application server.*
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis velit vitae augue imperdiet placerat. Suspendisse cursus commodo dolor, id faucibus tortor gravida quis. Morbi ac erat ut libero varius accumsan ut eget enim. Curabitur nibh risus, porttitor quis cursus sed, viverra ac urna. Donec justo quam, laoreet quis magna eu, fringilla consequat purus. Curabitur malesuada porttitor ante. Integer vitae neque vel purus egestas egestas. Proin consectetur ante in varius varius. Ut mattis id tortor a venenatis. Donec enim arcu, lacinia et odio sed, ultricies viverra elit. Duis varius elementum justo, sed mattis dui consequat nec. Proin congue sit amet lorem et consectetur. Donec aliquet risus in sapien bibendum, nec ultrices quam iaculis. Fusce volutpat lacus neque, vitae euismod libero tincidunt laoreet.
 
-This RefCard tries to sum up basic things to know.
-
-include::asciidoc/overview.asciidoc[]
-include::asciidoc/configuration.asciidoc[]
-include::asciidoc/maven.asciidoc[]
-include::asciidoc/arquillian.asciidoc[]
+include::asciidoc/first.asciidoc[]
+include::asciidoc/second.asciidoc[]
